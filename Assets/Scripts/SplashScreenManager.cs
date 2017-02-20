@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class SplashScreenManager : MonoBehaviour {
 
+	public float autoLoadNextLevelAfter;
+
 	// Use this for initialization
 	void Start () {
-		Invoke ("ChangeLevel", 3.0f);
-		Debug.Log ("New Level load: Start");
+		Invoke ("LoadNextLevel", autoLoadNextLevelAfter);
 	}
 
-	void ChangeLevel() {
-		Application.LoadLevel ("Start Menu");
+	void LoadNextLevel() {
+		Application.LoadLevel (Application.loadedLevel + 1);
 	}
 }
